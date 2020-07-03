@@ -5,6 +5,8 @@
   "scripts": {
     "build": "webpack --progress --colors --mode=production",
     "start": "webpack-dev-server --config webpack.config.js --progress --colors --open --mode=development",
+    "apollo-download-schema": "npx apollo client:download-schema src/generated/apollo/github-schema.json --endpoint https://api.github.com/graphql --header \"authorization: Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}\"",
+    "apollo-codegen": "npx apollo client:codegen src/generated/apollo/ --endpoint https://api.github.com/graphql --header \"authorization: Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}\" --target typescript --outputFlat",
     "prettier": "npx prettier --write ."
   },
   "author": "Anton Kiselev-Minaev",

@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
+import {
+  Search as SearchData,
+  SearchVariables,
+} from '../generated/apollo/Search';
 
 const SEARCH_QUERY = gql`
-  query($search_term: String!) {
+  query Search($search_term: String!) {
     search(query: $search_term, type: USER, first: 3) {
       edges {
         node {
@@ -25,7 +29,7 @@ const Search: React.FC = () => {
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const { data } = useQuery(SEARCH_QUERY, {
+  const { data } = useQuery<SearchData, SearchVariables>(SEARCH_QUERY, {
     variables: {
       search_term: debouncedSearchTerm,
     },
