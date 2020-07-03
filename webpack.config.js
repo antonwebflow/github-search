@@ -1,5 +1,7 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
 const path = require('path');
 const APP_PATH = path.resolve(__dirname, 'src');
 
@@ -28,5 +30,9 @@ module.exports = {
       template: path.join(APP_PATH, 'index.html'),
     }),
     new ForkTsCheckerWebpackPlugin(),
+    new Dotenv({
+      safe: true,
+      allowEmptyValues: true,
+    }),
   ],
 };
