@@ -6,6 +6,9 @@ const path = require('path');
 const APP_PATH = path.resolve(__dirname, 'src');
 
 module.exports = {
+  devServer: {
+    open: false,
+  },
   entry: APP_PATH,
   devtool: 'inline-source-map',
 
