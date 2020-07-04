@@ -12,7 +12,7 @@ import { OrderDirection } from '../generated/apollo/globalTypes';
 import { SortDirectionContext } from './SortDirectionContext';
 import { SearchInputStyled } from './SearchInputStyled';
 
-const Search: React.FC = () => {
+const SearchContainer: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('antonwebflow');
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
@@ -54,4 +54,4 @@ const Search: React.FC = () => {
   );
 };
 
-export default Search;
+export default SearchContainer;
