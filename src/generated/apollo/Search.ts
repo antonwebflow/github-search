@@ -3,6 +3,8 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { OrderDirection } from "./globalTypes";
+
 // ====================================================
 // GraphQL query operation: Search
 // ====================================================
@@ -86,5 +88,5 @@ export interface Search {
 
 export interface SearchVariables {
   search_term: string;
-  direction?: string | null;
+  direction?: OrderDirection | null;
 }

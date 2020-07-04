@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const SEARCH_QUERY = gql`
-  query Search($search_term: String!, $direction: String = ASC) {
+  query Search($search_term: String!, $direction: OrderDirection = ASC) {
     search(query: $search_term, type: USER, first: 1) {
       edges {
         node {

@@ -8,6 +8,7 @@ import {
 } from '../generated/apollo/Search';
 import UserProfileList from './UserProfileList';
 import { SEARCH_QUERY } from '../queries/search';
+import { OrderDirection } from '../generated/apollo/globalTypes';
 
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('antonwebflow');
@@ -17,7 +18,7 @@ const Search: React.FC = () => {
   const { data } = useQuery<SearchData, SearchVariables>(SEARCH_QUERY, {
     variables: {
       search_term: debouncedSearchTerm,
-      direction: 'ASC',
+      direction: OrderDirection.ASC,
     },
   });
 
