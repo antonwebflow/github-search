@@ -13,12 +13,12 @@ const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
 
   return (
     <>
-      <img src={avatarUrl} />
+      <img src={avatarUrl} height="200px" />
       <h1>{name}</h1>
       {email && <p>{email}</p>}
       <h2>
         <a target="_blank" rel="noopener" href={url}>
-          Profile <MdOpenInNew />
+          {url} <MdOpenInNew />
         </a>
       </h2>
 
