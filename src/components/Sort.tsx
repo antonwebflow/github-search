@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { OrderDirection } from '../generated/apollo/globalTypes';
 import { SortDirectionContext } from './SortDirectionContext';
+import { SortStyled } from './SortStyled';
 
 const Sort: React.FC = () => {
   const { setDirection, direction } = useContext(SortDirectionContext);
 
   return (
-    <>
+    <SortStyled>
       <fieldset>
         <legend>Sort by name</legend>
         <label htmlFor={OrderDirection.ASC}>ASC</label>
@@ -29,7 +30,7 @@ const Sort: React.FC = () => {
           value={OrderDirection.DESC}
         />
       </fieldset>
-    </>
+    </SortStyled>
   );
 };
 

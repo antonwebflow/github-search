@@ -27,6 +27,7 @@ const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
       </UserProfileStyled>
 
       <RepositoriesListStyled>
+        <h3>Repositories</h3>
         <Sort />
         {profile.repositories.nodes?.map((r, index) => (
           <RepositoryListItem repo={r!} key={index} />

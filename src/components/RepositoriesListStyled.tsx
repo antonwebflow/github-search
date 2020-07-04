@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
 export const RepositoriesListStyled = styled.div`
-  margin-top: 1.5rem;
+  h3 {
+    margin-bottom: 0.5rem;
+  }
 `;
