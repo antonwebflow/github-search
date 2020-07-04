@@ -2,6 +2,7 @@ import React from 'react';
 import { Search_search_edges_node } from '../generated/apollo/Search';
 import RepositoryListItem from './RepositoryListItem';
 import Sort from './Sort';
+import { MdOpenInNew } from 'react-icons/all';
 
 const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
   profile,
@@ -13,9 +14,13 @@ const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
   return (
     <>
       <img src={avatarUrl} />
-      {name && <p>{name}</p>}
-      {name && <p>{email}</p>}
-      <a href={url}>Profile</a>
+      <h1>{name}</h1>
+      {email && <p>{email}</p>}
+      <h2>
+        <a target="_blank" rel="noopener" href={url}>
+          Profile <MdOpenInNew />
+        </a>
+      </h2>
 
       <Sort />
 

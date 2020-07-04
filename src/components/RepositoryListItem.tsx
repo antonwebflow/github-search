@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdOpenInNew } from 'react-icons/md';
 import { Search_search_edges_node_User_repositories_nodes } from '../generated/apollo/Search';
 
 const RepositoryListItem: React.FC<{
@@ -6,9 +7,11 @@ const RepositoryListItem: React.FC<{
 }> = ({ repo: { description, name, url } }) => {
   return (
     <>
-      <p>
-        <a href={url}>{name}</a>
-      </p>
+      <h3>
+        <a target="_blank" rel="noopener" href={url}>
+          {name} <MdOpenInNew />
+        </a>
+      </h3>
       {description && <p>{description}</p>}
     </>
   );
