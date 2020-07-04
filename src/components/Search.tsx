@@ -9,16 +9,19 @@ import {
 import UserProfileList from './UserProfileList';
 import { SEARCH_QUERY } from '../queries/search';
 import { OrderDirection } from '../generated/apollo/globalTypes';
+import { SortDirectionContext } from './SortDirectionContext';
 
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('antonwebflow');
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
+  const [direction, setDirection] = useState(OrderDirection.ASC);
+
   const { data } = useQuery<SearchData, SearchVariables>(SEARCH_QUERY, {
     variables: {
       search_term: debouncedSearchTerm,
-      direction: OrderDirection.ASC,
+      direction: direction,
     },
   });
 
@@ -26,7 +29,7 @@ const Search: React.FC = () => {
   const profiles = data?.search?.edges ? data.search.edges : null;
 
   return (
-    <>
+    <SortDirectionContext.Provider value={{ direction, setDirection }}>
       <div>
         <label htmlFor="search">Search</label>
         <input id="search" onChange={(e) => setSearchTerm(e.target.value)} />
@@ -36,7 +39,7 @@ const Search: React.FC = () => {
           profiles={(profiles as unknown) as Search_search_edges[]}
         />
       )}
-    </>
+    </SortDirectionContext.Provider>
   );
 };
 
