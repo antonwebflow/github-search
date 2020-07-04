@@ -40,9 +40,9 @@ export interface Search_search_edges_node_User_repositories {
 export interface Search_search_edges_node_User {
   __typename: "User";
   /**
-   * The user's public profile name.
+   * The username used to login.
    */
-  name: string | null;
+  login: string;
   /**
    * The user's publicly visible profile email.
    */

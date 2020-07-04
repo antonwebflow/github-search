@@ -6,7 +6,7 @@ export const SEARCH_QUERY = gql`
       edges {
         node {
           ... on User {
-            name
+            login
             email
             avatarUrl
             url

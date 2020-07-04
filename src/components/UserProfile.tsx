@@ -10,14 +10,14 @@ const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
 }) => {
   if (profile.__typename !== 'User') return null;
 
-  const { avatarUrl, email, name, url } = profile;
+  const { avatarUrl, email, login, url } = profile;
 
   return (
     <>
       <UserProfileStyled>
         <img src={avatarUrl} />
         <div>
-          <h1>{name}</h1>
+          <h1>{login}</h1>
           {email && <p>{email}</p>}
           <a target="_blank" rel="noopener" href={url}>
             {url} <MdOpenInNew />
