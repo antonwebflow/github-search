@@ -17,6 +17,7 @@ const Search: React.FC = () => {
   const { data } = useQuery<SearchData, SearchVariables>(SEARCH_QUERY, {
     variables: {
       search_term: debouncedSearchTerm,
+      direction: 'ASC',
     },
   });
 

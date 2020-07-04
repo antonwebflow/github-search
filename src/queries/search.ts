@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const SEARCH_QUERY = gql`
-  query Search($search_term: String!) {
+  query Search($search_term: String!, $direction: String = ASC) {
     search(query: $search_term, type: USER, first: 1) {
       edges {
         node {
@@ -10,7 +10,10 @@ export const SEARCH_QUERY = gql`
             email
             avatarUrl
             url
-            repositories(first: 100, orderBy: { field: NAME, direction: ASC }) {
+            repositories(
+              first: 100
+              orderBy: { field: NAME, direction: $direction }
+            ) {
               nodes {
                 name
                 description
