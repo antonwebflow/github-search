@@ -6,7 +6,7 @@ export const UserProfileStyled = styled.div`
     font-size: 1.3rem;
   }
   img {
-    max-height: 10rem;
+    max-height: 8rem;
   }
   div {
     padding-left: 1rem;

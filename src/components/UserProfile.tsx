@@ -4,6 +4,7 @@ import RepositoryListItem from './RepositoryListItem';
 import Sort from './Sort';
 import { MdOpenInNew } from 'react-icons/all';
 import { UserProfileStyled } from './UserProfileStyled';
+import { RepositoriesListStyled } from './RepositoriesListStyled';
 
 const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
   profile,
@@ -25,11 +26,12 @@ const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
         </div>
       </UserProfileStyled>
 
-      <Sort />
-
-      {profile.repositories.nodes?.map((r, index) => (
-        <RepositoryListItem repo={r!} key={index} />
-      ))}
+      <RepositoriesListStyled>
+        <Sort />
+        {profile.repositories.nodes?.map((r, index) => (
+          <RepositoryListItem repo={r!} key={index} />
+        ))}
+      </RepositoriesListStyled>
     </>
   );
 };
