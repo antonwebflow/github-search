@@ -19,12 +19,15 @@ const Search: React.FC = () => {
 
   const [direction, setDirection] = useState(OrderDirection.ASC);
 
-  const { data } = useQuery<SearchData, SearchVariables>(SEARCH_QUERY, {
-    variables: {
-      search_term: debouncedSearchTerm,
-      direction: direction,
-    },
-  });
+  const { data, loading, error } = useQuery<SearchData, SearchVariables>(
+    SEARCH_QUERY,
+    {
+      variables: {
+        search_term: debouncedSearchTerm,
+        direction: direction,
+      },
+    }
+  );
 
   console.log(data);
   const profiles = data?.search?.edges ? data.search.edges : null;
@@ -36,11 +39,17 @@ const Search: React.FC = () => {
         <input id="search" onChange={(e) => setSearchTerm(e.target.value)} />
       </SearchInputStyled>
 
-      {profiles && (
-        <UserProfileList
-          profiles={(profiles as unknown) as Search_search_edges[]}
-        />
+      {loading ? (
+        <>Loading...</>
+      ) : (
+        profiles && (
+          <UserProfileList
+            profiles={(profiles as unknown) as Search_search_edges[]}
+          />
+        )
       )}
+
+      {error ? <>{error}</> : null}
     </SortDirectionContext.Provider>
   );
 };
