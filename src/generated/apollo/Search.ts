@@ -11,6 +11,30 @@ export interface Search_search_edges_node_App {
   __typename: "App" | "Issue" | "MarketplaceListing" | "Organization" | "PullRequest" | "Repository";
 }
 
+export interface Search_search_edges_node_User_repositories_nodes {
+  __typename: "Repository";
+  /**
+   * The name of the repository.
+   */
+  name: string;
+  /**
+   * The description of the repository.
+   */
+  description: string | null;
+  /**
+   * The HTTP URL for this repository
+   */
+  url: any;
+}
+
+export interface Search_search_edges_node_User_repositories {
+  __typename: "RepositoryConnection";
+  /**
+   * A list of nodes.
+   */
+  nodes: (Search_search_edges_node_User_repositories_nodes | null)[] | null;
+}
+
 export interface Search_search_edges_node_User {
   __typename: "User";
   /**
@@ -29,6 +53,10 @@ export interface Search_search_edges_node_User {
    * The HTTP URL for this user
    */
   url: any;
+  /**
+   * A list of repositories that the user owns.
+   */
+  repositories: Search_search_edges_node_User_repositories;
 }
 
 export type Search_search_edges_node = Search_search_edges_node_App | Search_search_edges_node_User;
@@ -58,4 +86,5 @@ export interface Search {
 
 export interface SearchVariables {
   search_term: string;
+  direction?: string | null;
 }
