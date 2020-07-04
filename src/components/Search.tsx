@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 import {
@@ -8,30 +7,7 @@ import {
   SearchVariables,
 } from '../generated/apollo/Search';
 import UserProfileList from './UserProfileList';
-
-const SEARCH_QUERY = gql`
-  query Search($search_term: String!) {
-    search(query: $search_term, type: USER, first: 1) {
-      edges {
-        node {
-          ... on User {
-            name
-            email
-            avatarUrl
-            url
-            repositories(first: 100, orderBy: { field: NAME, direction: ASC }) {
-              nodes {
-                name
-                description
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { SEARCH_QUERY } from '../queries/search';
 
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('antonwebflow');
