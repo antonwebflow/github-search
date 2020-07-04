@@ -2,7 +2,7 @@ import React from 'react';
 import { Search_search_edges_node } from '../generated/apollo/Search';
 import RepositoryListItem from './RepositoryListItem';
 import Sort from './Sort';
-import { MdOpenInNew } from 'react-icons/all';
+import { MdOpenInNew } from 'react-icons/md';
 import { UserProfileStyled } from './UserProfileStyled';
 import { RepositoriesListStyled } from './RepositoriesListStyled';
 
