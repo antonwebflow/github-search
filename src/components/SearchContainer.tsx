@@ -13,7 +13,7 @@ import { SortDirectionContext } from './SortDirectionContext';
 import { SearchInputStyled } from './SearchInputStyled';
 
 const SearchContainer: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('antonwebflow');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
@@ -38,6 +38,7 @@ const SearchContainer: React.FC = () => {
         <label htmlFor="search">Search</label>
         <input
           id="search"
+          value={searchTerm}
           placeholder="Enter Github username"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -46,6 +47,7 @@ const SearchContainer: React.FC = () => {
       {loading ? (
         <>Loading...</>
       ) : (
+        searchTerm.length !== 0 &&
         profiles && (
           <UserProfileList
             profiles={(profiles as unknown) as Search_search_edges[]}
