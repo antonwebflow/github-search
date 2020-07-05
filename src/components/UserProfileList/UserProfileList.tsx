@@ -1,6 +1,6 @@
 import React from 'react';
-import UserProfile from './UserProfile';
-import { Search_search_edges } from '../generated/apollo/Search';
+import UserProfile from '../UserProfile/UserProfile';
+import { Search_search_edges } from '../../generated/apollo/Search';
 
 const UserProfileList: React.FC<{
   profiles: (Search_search_edges | null)[];

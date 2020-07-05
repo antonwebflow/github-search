@@ -6,7 +6,7 @@ import {
   Search_search_edges,
   SearchVariables,
 } from '../generated/apollo/Search';
-import UserProfileList from './UserProfileList';
+import UserProfileList from './UserProfileList/UserProfileList';
 import { SEARCH_QUERY } from '../queries/search';
 import { OrderDirection } from '../generated/apollo/globalTypes';
 import { SortDirectionContext } from './SortDirectionContext';

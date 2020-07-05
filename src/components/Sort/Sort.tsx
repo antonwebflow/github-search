@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { OrderDirection } from '../generated/apollo/globalTypes';
-import { SortDirectionContext } from './SortDirectionContext';
+import { OrderDirection } from '../../generated/apollo/globalTypes';
+import { SortDirectionContext } from '../SortDirectionContext';
 import { SortStyled } from './SortStyled';
 
 const Sort: React.FC = () => {

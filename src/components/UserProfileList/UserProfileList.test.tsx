@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import UserProfileList from './UserProfileList';
-import { Search_search_edges } from '../generated/apollo/Search';
+import { Search_search_edges } from '../../generated/apollo/Search';
 
 describe('UserProfileList', () => {
   let profilesMock: (Search_search_edges | null)[];

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Search_search_edges_node } from '../generated/apollo/Search';
-import RepositoryListItem from './RepositoryListItem';
-import Sort from './Sort';
+import { Search_search_edges_node } from '../../generated/apollo/Search';
+import RepositoryListItem from '../RepositoryListItem';
+import Sort from '../Sort/Sort';
 import { MdOpenInNew } from 'react-icons/md';
 import { UserProfileStyled } from './UserProfileStyled';
-import { RepositoriesListStyled } from './RepositoriesListStyled';
+import { RepositoriesListStyled } from '../RepositoriesListStyled';
 
 const UserProfile: React.FC<{ profile: Search_search_edges_node }> = ({
   profile,
