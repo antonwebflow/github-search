@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchInputStyled = styled.div`
+  flex-grow: 1;
   display: flex;
   label {
     margin-right: 0.3rem;

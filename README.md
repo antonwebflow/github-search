@@ -18,12 +18,11 @@ data if the same search is executed.
 - NPM 6.14.5
 
 ### Running
-1. Add your Github personal access token with `read:user` and `user:email` scopes
+1. Add your Github personal access token with `read:user` and `user:email` scopes to `.env` file, sample file `.env.example` located at the root
 2. Start development server by running
 `npm run start`
-### Schema download
-`GITHUB_PERSONAL_ACCESS_TOKEN=token npm run apollo-download-schema`
 ### Types generation
+Types generation command is rather for development
 `GITHUB_PERSONAL_ACCESS_TOKEN=token npm run apollo-codegen`
 ### Architecture
 Apollo boost used here because it provide caching feature
