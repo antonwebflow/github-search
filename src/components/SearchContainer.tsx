@@ -36,7 +36,11 @@ const SearchContainer: React.FC = () => {
     <SortDirectionContext.Provider value={{ direction, setDirection }}>
       <SearchInputStyled>
         <label htmlFor="search">Search</label>
-        <input id="search" onChange={(e) => setSearchTerm(e.target.value)} />
+        <input
+          id="search"
+          placeholder="Enter Github username"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </SearchInputStyled>
 
       {loading ? (
