@@ -29,8 +29,7 @@ const SearchContainer: React.FC = () => {
     }
   );
 
-  console.log(data);
-  const profiles = data?.search?.edges ? data.search.edges : null;
+  const profiles = data?.search?.edges ?? data?.search.edges;
 
   return (
     <SortDirectionContext.Provider value={{ direction, setDirection }}>
